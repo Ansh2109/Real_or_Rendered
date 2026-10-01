@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --border: #e8e5df;
+  --text: #1a1916;
+  --text-muted: #7a7570;
+  --accent: #1a1916;
+  --indigo: #4f46e5;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-syne);
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-syne), sans-serif;
+}
+
+.game-shell {
+  min-height: 100dvh;
+}
+
+/* ── Card / Panel ─────────────────────────────────────── */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+  border-radius: 1.25rem;
+}
+
+/* ── Primary button — dark fill ───────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  border-radius: 0.6rem;
+  background: var(--accent);
+  padding: 0.65rem 1.75rem;
+  font-family: var(--font-syne), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* ── Choice button ────────────────────────────────────── */
+.choice-btn {
+  min-height: 3rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font-syne), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  transition: border-color 140ms, background 140ms, transform 140ms;
+}
+.choice-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: #f0ede8;
+  transform: translateY(-1px);
+}
+.choice-btn:disabled { opacity: 0.35; cursor: default; }
+
+/* ── Chip selector ────────────────────────────────────── */
+.chip {
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 140ms;
+}
+.chip-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .game-shell { max-width: 1920px; margin: 0 auto; }
+}
